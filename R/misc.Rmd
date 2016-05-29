@@ -1,0 +1,15 @@
+---
+title: "Untitled"
+author: "Shinya Uryu"
+author: "Shinya Uryu"
+output: html_document
+---
+
+## Basic
+
+`file.edit()`関数を使うと任意のテキストエディタで対象のファイルを開くことができる
+
+```{r, eval = FALSE, echo = TRUE}
+file.edit("my_file.txt", editor = "RStudio.app")
+```
+

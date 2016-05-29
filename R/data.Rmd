@@ -1,0 +1,21 @@
+---
+title: "R"
+author: "Shinya Uryu"
+output: html_document
+---
+
+## Data handling
+
+- 行の名前として扱われている項目を変数として扱うために、以前は **`{dplyr}`**パッケージの`add_rownames()`関数を使っていたが、現在は **`{tibble}`**の`rownames_to_column()`を利用することが推奨されている。
+
+```{r}
+# 車種は列名として扱われている
+mtcars %>% head()
+mtcars %>% names()
+
+# mtcars %>% dplyr::add_rownames()
+mtcars %>% tibble::rownames_to_column(var = "cars") %>% 
+  dplyr::arrange(cars) %>% 
+  head()
+```
+
