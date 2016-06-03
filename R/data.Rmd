@@ -23,3 +23,18 @@ mtcars %>% tibble::rownames_to_column(var = "cars") %>%
   head()
 ```
 
+- 同一グループに対する処理で添え字を使う（前の行の値を集計に利用する）
+
+```{r}
+# 各行の値と先頭行の値の差を元める
+mtcars %>% tibble::rownames_to_column() %>% 
+  dplyr::group_by(cyl) %>% 
+  dplyr::arrange(cyl) %>% 
+  dplyr::mutate(mpg.diff = mpg - mpg[1])
+
+# lag()を使うと良い
+mtcars %>% tibble::rownames_to_column() %>% 
+  dplyr::group_by(cyl) %>% 
+  dplyr::arrange(cyl) %>% 
+  dplyr::mutate(diff =  dplyr::lag(mpg) - mpg)
+```

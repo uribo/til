@@ -1,0 +1,9 @@
+---
+title: "Performance"
+author: "Shinya Uryu"
+output: html_document
+---
+
+## for, loop
+
+- **`{foreach}`**パッケージを使ったループ処理中で生じるエラーへの対応。引数`.errorhandling`で処理内容を指定する。*remove*にしておくと安全
