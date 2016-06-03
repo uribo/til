@@ -1,6 +1,5 @@
 ---
-title: "Untitled"
-author: "Shinya Uryu"
+title: "miscellaneous"
 author: "Shinya Uryu"
 output: html_document
 ---
