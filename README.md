@@ -5,13 +5,22 @@ TIL: Today I Learned （今日の学び）
 
 ## CATEGORY
 
+### Database
+
+* [MySQL](database/mysql.md)
+
 ### Git
 
 * [repository](git/repository.md)
 
 ### Knowledge
 
+* [misc](knowledge/misc.md)
+
 ### Python
+
+- [Jupyter](python/jupyter.md)
+- [Library](python/library.md)
 
 ### R
 
@@ -23,6 +32,9 @@ TIL: Today I Learned （今日の学び）
 ### SQL
 
 ### Unix
+
+- [general](unix/general.md)
+- [mac_os](unix/mac.md)
 
 ### Web
 
