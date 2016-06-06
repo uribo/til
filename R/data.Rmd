@@ -4,6 +4,11 @@ author: "Shinya Uryu"
 output: html_document
 ---
 
+```{r}
+library(dplyr)
+```
+
+
 ## Collect
 
 - RDBからデータを取得する際は欠損値の扱いが異なることがあるので気をつける。空白文字列を欠損とする場合、`dplyr::na_if(var, "")`のようにRの欠損値NAへと置換しておくのが適切。
@@ -38,3 +43,18 @@ mtcars %>% tibble::rownames_to_column() %>%
   dplyr::arrange(cyl) %>% 
   dplyr::mutate(diff =  dplyr::lag(mpg) - mpg)
 ```
+
+- 部分的に共通な複数の変数名を基準にした並び替え（データフレームの列名を直接利用する）
+
+```{r}
+# desc()を使うと-符号をつけた時と同様に、降順での並び替えが実行される
+set.seed(71)
+df <- data_frame("var_1" = c(seq(1, 5)),
+                 "var_2" = c(seq(5, 1)),
+                 "var_3" = c(rbinom(5, 1, 0.5)))
+
+df
+
+df %>% dplyr::arrange_(paste("desc(", colnames(.) %>% grep("[0-9]", ., value = TRUE) %>% paste(sep = "'"), ")"))
+```
+
