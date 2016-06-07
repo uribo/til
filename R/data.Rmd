@@ -44,6 +44,15 @@ mtcars %>% tibble::rownames_to_column() %>%
   dplyr::mutate(diff =  dplyr::lag(mpg) - mpg)
 ```
 
+- `dplyr::*_each()`関数の思違い。`mutate`で増える変数名は次のようになる。
+
+```{r}
+iris %>% dplyr::mutate_each(funs(half = . / 2), -Species) %>% colnames()
+iris %>% group_by(Species) %>% 
+  summarise_each(funs(mean = mean(.))) %>% colnames()
+```
+
+
 - 部分的に共通な複数の変数名を基準にした並び替え（データフレームの列名を直接利用する）
 
 ```{r}
