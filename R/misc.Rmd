@@ -6,9 +6,16 @@ output: html_document
 
 ## Basic
 
-`file.edit()`関数を使うと任意のテキストエディタで対象のファイルを開くことができる
+- `file.edit()`関数を使うと任意のテキストエディタで対象のファイルを開くことができる
 
 ```{r, eval = FALSE, echo = TRUE}
 file.edit("my_file.txt", editor = "RStudio.app")
+```
+
+- `.Rprofile`はユーザーおよび作業ディレクトリに固有の設定となる。コンピュータ全体に反映させる設定は`$R_HOME/etc/Rprofile.site`に記述する ref) http://d.hatena.ne.jp/teramonagi/20160607/1465304260
+    - CRONTABで実行するコードの環境変数はここに書いておくと良いかも
+
+```{r}
+Sys.getenv("R_HOME")
 ```
 

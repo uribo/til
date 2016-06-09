@@ -67,3 +67,13 @@ df
 df %>% dplyr::arrange_(paste("desc(", colnames(.) %>% grep("[0-9]", ., value = TRUE) %>% paste(sep = "'"), ")"))
 ```
 
+- データの中身に応じた値の変換を行うには`dplyr::recode()`を使うと楽
+
+```{r}
+iris$Species %>% levels()
+iris %>% dplyr::mutate(Species = dplyr::recode(Species, 
+                                               setosa = "set",
+                                               versicolor = "ver",
+                                               virginica = "vir")) %$% Species %>% levels()
+```
+
