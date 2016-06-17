@@ -18,4 +18,3 @@ file.edit("my_file.txt", editor = "RStudio.app")
 ```{r}
 Sys.getenv("R_HOME")
 ```
-

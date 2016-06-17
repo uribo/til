@@ -1,0 +1,18 @@
+---
+title: "utilities"
+author: "Shinya Uryu"
+output: html_document
+---
+
+- 桁区切りを表示させる（ **`{scales}`**パッケージを利用する）
+
+```{r}
+scales::comma(10000)
+```
+
+- 拡張子の取得
+
+```{r}
+tools::file_ext("~/git/til/README.md")
+```
+

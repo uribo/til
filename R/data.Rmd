@@ -52,6 +52,15 @@ iris %>% group_by(Species) %>%
   summarise_each(funs(mean = mean(.))) %>% colnames()
 ```
 
+- `dplyr::mutate_each()`では、加工後の変数名が微妙な感じになる。そこで`purrr::dmap()`を使うと良い場合がある。
+    - ref) http://notchained.hatenablog.com/entry/2016/01/06/235424
+
+```{r, eval = FALSE}
+iris %>% dplyr::mutate_each(dplyr::funs(max = max), -Species) %>% head()
+
+iris %>% purrr::pmap()
+```
+
 
 - 部分的に共通な複数の変数名を基準にした並び替え（データフレームの列名を直接利用する）
 
@@ -76,4 +85,7 @@ iris %>% dplyr::mutate(Species = dplyr::recode(Species,
                                                versicolor = "ver",
                                                virginica = "vir")) %$% Species %>% levels()
 ```
+
+
+
 
